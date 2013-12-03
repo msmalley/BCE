@@ -2,22 +2,10 @@
 
 class mongobase_btc extends mongobase_mb
 {
-
-	protected static $options;
-	protected static $env;
-
-	private function ini()
-	{
-		return parse_ini_file(dirname(dirname(dirname(__FILE__))).'/config.ini', true);
-	}
     
     function __construct($options = array(), $key = 'btc')
 	{
-		$defaults = array(
-			'key'		=> $key
-		);
-		// Merge options and defaults
-		$settings = array_merge($defaults, $options);
+		
 	}
 
 	public function query($options = array())
