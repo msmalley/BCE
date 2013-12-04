@@ -1,6 +1,8 @@
 # BC Embassy PHP Login Example
 
-This example uses PHP and the block-chain as a way to authenticate login without the need for a database and for the length of that login to be based on the amount of Bitcoin directly sent.
+[BCE.asia](http://bce.asia) is a non-profit dedicated to educating and promoting Asian communities on block-chain technologies.
+
+This freely available example uses PHP and the block-chain as a way to authenticate login without the need for a database and for the length of that login to be based on the amount of Bitcoin the user directly sends.
 
 =====
 
@@ -17,3 +19,7 @@ From here, you can also control how much BTC it costs for 24 hours of access.
 If not logged-in and Bitcoin server is online and config.ini is set correctly, you should see something like:
 
 ![](../screenshots/php-login/denied.jpg?raw=true)
+
+Manually refresh the page once payment has been made and if all goes well, you should see this:
+
+![](../screenshots/php-login/granted.jpg?raw=true)
