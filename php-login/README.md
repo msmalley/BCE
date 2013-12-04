@@ -23,3 +23,20 @@ If not logged-in and Bitcoin server is online and config.ini is set correctly, y
 Manually refresh the page once payment has been made and if all goes well, you should see this:
 
 ![](../screenshots/php-login/granted.jpg?raw=true)
+
+=====
+
+# Caveats and The Future...?
+
+The following caveats should apply:
+
+* This is not production ready or highly-scalable
+* Timestamps rounded to purchased time should be added to cookies
+* The transaction checks should be precision-based (currently gets most recent)
+
+In the future we would like to improve this example by:
+
+* Fixing the caveats
+* Offering additional currencies payment options
+* Using local-storage first then cookies as back-up
+* AJAX polling for complete transaction and auto-reloading
