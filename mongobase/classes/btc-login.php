@@ -66,6 +66,30 @@ class mongobase_btc_login extends mongobase_mb
 		return $details;
 	}
 
+	private function set_cookies()
+	{
+		$logged_in = false;
+		$recent_transactions = $this::$btc->query(array('function'=>'listtransactions', 'options'=>$this::$cookie_name.'_'.$uid));
+		if(is_array($recent_transactions) && isset($recent_transactions[0]['txid']) && isset($recent_transactions[0]['amount']) && isset($recent_transactions[0]['category']) && $recent_transactions[0]['category'] == 'receive')
+		{
+			$txid = $recent_transactions[0]['txid'];
+			$amount = $recent_transactions[0]['amount'];
+
+			if($amount > 0)
+			{
+				$logged_in = true;
+
+				$number_of_days_bought = $amount / $this::$btc_per_day;
+				$new_cookie_life = 86400 * $number_of_days_bought;
+
+				// Manage Cookies
+				setcookie($this::$cookie_name.'_'.$uid, hash('sha256',$this::$txid_salt.$txid), time() + $new_cookie_life);
+				setcookie($this::$cookie_name, false, time() - 1);
+			}
+		}
+		return $logged_in;
+	}
+
     function __construct($options = array(), $key = 'btc')
 	{
 		// Include BTC Module
@@ -96,24 +120,7 @@ class mongobase_btc_login extends mongobase_mb
 		if(!$logged_in && $uid_balance > 0)
 		{
 			// Not logged-in but got transactions
-			$recent_transactions = $this::$btc->query(array('function'=>'listtransactions', 'options'=>$this::$cookie_name.'_'.$uid));
-			if(is_array($recent_transactions) && isset($recent_transactions[0]['txid']) && isset($recent_transactions[0]['amount']) && isset($recent_transactions[0]['category']) && $recent_transactions[0]['category'] == 'receive')
-			{
-				$txid = $recent_transactions[0]['txid'];
-				$amount = $recent_transactions[0]['amount'];
-
-				if($amount > 0)
-				{
-					$logged_in = true;
-					
-					$number_of_days_bought = $amount / $this::$btc_per_day;
-					$new_cookie_life = 86400 * $number_of_days_bought;
-
-					// Manage Cookies
-					setcookie($this::$cookie_name.'_'.$uid, hash('sha256',$this::$txid_salt.$txid), time() + $new_cookie_life);
-					setcookie($this::$cookie_name, false, time() - 1);
-				}
-			}
+			$logged_in = $this->set_cookies();
 		}
 		return $logged_in;
 	}
