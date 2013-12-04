@@ -1,4 +1,4 @@
-# Welcome to the Block-Chain Embassy GitHub Account
+# The Block-Chain Embassy Labs
 
 We are on a mission to evangelize block-chain based protocols throughout Asia.
 
