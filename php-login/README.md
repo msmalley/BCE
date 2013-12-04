@@ -40,3 +40,5 @@ In the future we would like to improve this example by:
 * Offering additional currencies payment options
 * Using local-storage first then cookies as back-up
 * AJAX polling for complete transaction and auto-reloading
+
+Help to support the [Block-Chain Embassy](http://bce.asia) by donating to the following address - [1MBQ551Lws1iKvU1CK3Ly1tAREYLQT1g3g](https://blockchain.info/address/1MBQ551Lws1iKvU1CK3Ly1tAREYLQT1g3g)
