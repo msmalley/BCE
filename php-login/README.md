@@ -16,4 +16,4 @@ From here, you can also control how much BTC it costs for 24 hours of access.
 
 If not logged-in and Bitcoin server is online and config.ini is set correctly, you should see something like:
 
-![](../screenshots/php-login/denied.png?raw=true)
+![](../screenshots/php-login/denied.jpg?raw=true)
