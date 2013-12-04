@@ -1,6 +1,6 @@
 # BC Embassy PHP Login Example
 
-[BCE.asia](http://bce.asia) is a non-profit dedicated to educating and promoting Asian communities on block-chain technologies.
+[BCE.asia](http://bce.asia) is a non-profit dedicated to educating Asian communities on block-chain technologies.
 
 This freely available example uses PHP and the block-chain as a way to authenticate login without the need for a database and for the length of that login to be based on the amount of Bitcoin the user directly sends.
 
